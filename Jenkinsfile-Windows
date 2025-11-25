@@ -64,3 +64,6 @@ pipeline {
                 to: "yasminerahhaoui42@gmail.com",
                 from: "jenkins@gmail.com",
                 replyTo: "jenkins@gmail.com",
+        }
+    }
+}
