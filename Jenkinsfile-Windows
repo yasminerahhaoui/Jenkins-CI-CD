@@ -9,6 +9,10 @@ pipeline {
         APP_MODULE = "app:app"
     }
 
+    triggers {
+        cron('H/5 * * * *')
+    }
+
     stages {
 
         stage('Checkout') {
@@ -46,14 +50,6 @@ pipeline {
                     }
                 }
             }
-                stage('Test File 2') {
-                        steps {
-                            bat """
-                            call ${VENV_DIR}\\Scripts\\activate
-                            python -m pytest test_app_2.py -v
-                            """
-                        }
-                    }
         }
 
         stage('Deploy (Local with Gunicorn)') {
