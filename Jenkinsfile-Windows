@@ -38,7 +38,6 @@ pipeline {
             when {
                 not {
                     changeset pattern: "README.md", caseSensitive: true
-
                 }
             }
             parallel {
@@ -70,7 +69,9 @@ pipeline {
                 """
             }
         }
-    post {
+    } // <-- fermeture de stages
+
+    post { // <-- post pipeline global
         success {
             emailext(
                 to: "EMAIL_TO_PLACEHOLDER",
@@ -101,5 +102,5 @@ pipeline {
             )
         }
     }
-}
+
 }
