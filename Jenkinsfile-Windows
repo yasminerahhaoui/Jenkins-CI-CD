@@ -37,7 +37,8 @@ pipeline {
         stage('Run Tests') {
             when {
                 not {
-                    changeset "README.md"
+                    changeset pattern: "README.md", caseSensitive: true
+
                 }
             }
             parallel {
